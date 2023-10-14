@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Folder</title>
+</head>
+   <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Create Folders</button>
+</form>
+<br>
+    <a href="{% url 'file_list' %}" class="btn btn-primary">File List</a>
+    <a href="{% url 'create_file' %}" class="btn btn-success">Create File</a>
+</body>
+</html>
+{% endblock %}

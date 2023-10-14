@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drive</title>
+</head>
+<body>
+
+    <!-- Display Files -->
+
+    <h2>List of Folders</h2>
+    <ul>
+        {% for folder in folders %}
+            <li>{{ folder }}</li>
+        {% endfor %}
+    </ul>
+    <hr>
+    <a href="{% url 'create_folder' %}" class="btn btn-primary">Create Folder</a> &nbsp &nbsp
+ <a href="{% url 'delete_folder' %}" class="btn btn-primary">Delete Folder</a>
+
+    <hr>
+    <h2>List of Files</h2>
+    <ul>
+        {% for file in files %}
+            <li>{{ file.name }}  <a href="{% url 'delete_file' file.id %}">Delete</a></li><hr>
+        {% endfor %}
+    </ul>
+    <hr>
+<a href="{% url 'create_file' %}" class="btn btn-success">Create File</a>
+
+</body>
+</html>
+{% endblock %}
